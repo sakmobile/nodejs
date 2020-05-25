@@ -28,10 +28,10 @@ request(options, function(err, res, body) {
       console.log(json.data.dataRegis.payment.paymentHistory[0]);
     }else{
       console.log("โอนครั้งที่ 2 มีข้อมูล")
-      console.log(json.data.dataRegis.payment.paymentHistory[0]);
-      var period = json.data.dataRegis.payment.paymentHistory[0].period;
-      var effDate = json.data.dataRegis.payment.paymentHistory[0].effDate;
-      var status = json.data.dataRegis.payment.paymentHistory[0].status;
+      console.log(json.data.dataRegis.payment.paymentHistory[1]);
+      var period = json.data.dataRegis.payment.paymentHistory[1].period;
+      var effDate = json.data.dataRegis.payment.paymentHistory[1].effDate;
+      var status = json.data.dataRegis.payment.paymentHistory[1].status;
 
       console.log("การโอน "+period +" โอน "+ effDate +" สถานะการโอน "+status);
       var sum = "การโอน "+period +" โอน "+ effDate +" สถานะการโอน "+status;

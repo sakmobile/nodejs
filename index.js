@@ -22,17 +22,25 @@ const options = {
 function intervalFunc(){
 request(options, function(err, res, body) {
     let json = JSON.parse(body);
-    if(json.data.dataRegis.payment.paymentHistory[1] == null ){   
+    if(json.data.dataRegis.payment.paymentHistory[1].status == "กำลังดำเนินการ" ){   
       //send();
       console.log("โอนครั้งที่ 2 ไม่มีข้อมูล")
-      console.log(json.data.dataRegis.payment.paymentHistory[0]);
-    }else{
-      console.log("โอนครั้งที่ 2 มีข้อมูล")
       console.log(json.data.dataRegis.payment.paymentHistory[1]);
       var period = json.data.dataRegis.payment.paymentHistory[1].period;
       var effDate = json.data.dataRegis.payment.paymentHistory[1].effDate;
       var status = json.data.dataRegis.payment.paymentHistory[1].status;
 
+      console.log("การโอน "+period +" โอน "+ effDate +" สถานะการโอน "+status);
+      var sum = "การโอน "+period +" โอน "+ effDate +" สถานะการโอน "+status;
+      lineNotify.notify({
+        message: sum
+      });
+    }else if(json.data.dataRegis.payment.paymentHistory[1].status == "โอนเงินสำเร็จ" ){  
+      console.log("โอนครั้งที่ 2 มีข้อมูล")
+      console.log(json.data.dataRegis.payment.paymentHistory[1]);
+      var period = json.data.dataRegis.payment.paymentHistory[1].period;
+      var effDate = json.data.dataRegis.payment.paymentHistory[1].effDate;
+      var status = json.data.dataRegis.payment.paymentHistory[1].status;
       console.log("การโอน "+period +" โอน "+ effDate +" สถานะการโอน "+status);
       var sum = "การโอน "+period +" โอน "+ effDate +" สถานะการโอน "+status;
       lineNotify.notify({
@@ -45,5 +53,5 @@ request(options, function(err, res, body) {
 }
 
 
-setInterval(intervalFunc,50000);
+setInterval(intervalFunc,10800000);
 

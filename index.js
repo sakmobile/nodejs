@@ -33,9 +33,7 @@ request(options, function(err, res, body) {
       console.log("การโอน "+period +" โอน "+ effDate +" สถานะการโอน "+status);
       var sum = "การโอน "+period +" โอน "+ effDate +" สถานะการโอน "+status;
       lineNotify.notify({
-        message: sum,
-          stickerPackageId:3,
-        stickerId:299
+        message: sum
       });
     }else if(json.data.dataRegis.payment.paymentHistory[1].status == "โอนเงินสำเร็จ" ){  
       console.log("โอนครั้งที่ 2 มีข้อมูล")
@@ -46,9 +44,7 @@ request(options, function(err, res, body) {
       console.log("การโอน "+period +" โอน "+ effDate +" สถานะการโอน "+status);
       var sum = "การโอน "+period +" โอน "+ effDate +" สถานะการโอน "+status;
       lineNotify.notify({
-        message: sum,
-        stickerPackageId:4,
-        stickerId:300
+        message: sum       
       });
     }
    

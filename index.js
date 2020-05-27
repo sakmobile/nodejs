@@ -53,5 +53,5 @@ request(options, function(err, res, body) {
 }
 
 
-setInterval(intervalFunc,360000);
+setInterval(intervalFunc,1800000);
 
